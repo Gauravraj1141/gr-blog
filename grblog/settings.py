@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import environ
+import os
+
 
 env = environ.Env()
 environ.Env.read_env()
@@ -31,7 +33,7 @@ SECRET_KEY = 'django-insecure-1==nk(3_bgbxmq0=7tyn@d-nu371^rl_vg+7him2xbcd4)yuq-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -135,3 +137,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# for static files 
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
